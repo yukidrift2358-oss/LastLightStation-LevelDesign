@@ -12,13 +12,15 @@
 
 | 想了解什么 | 入口 |
 |---|---|
-| 从立项到成品，哪些问题推动了修改 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-Iteration-CN.mp4](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-Iteration-CN.mp4) · [版本更新记录](docs/03-iteration-history.md) |
-| 整体动线、房间拆解和设计取舍 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-DesignShowcase-CN.mp4](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-DesignShowcase-CN.mp4) · [设计说明](docs/02-level-design.md) |
-| 教学、26区与Boss的完整操作 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-FullWalkthrough-CN.mp4](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-FullWalkthrough-CN.mp4) · [章节](docs/video-chapters.md) |
-| 直接体验最终白盒 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-Windows.zip](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-Windows.zip) |
+| 立项与迭代回顾 · 2分43秒 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.1/LastLightStation-Iteration-CN.mp4](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.1/LastLightStation-Iteration-CN.mp4) · [版本更新记录](docs/03-iteration-history.md) |
+| 动线、房间拆解与设计取舍 · 7分56秒 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.1/LastLightStation-DesignShowcase-CN.mp4](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.1/LastLightStation-DesignShowcase-CN.mp4) · [设计说明](docs/02-level-design.md) |
+| 教学、26区与Boss完整操作 · 21分53秒 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.1/LastLightStation-FullWalkthrough-CN.mp4](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.1/LastLightStation-FullWalkthrough-CN.mp4) · [章节](docs/video-chapters.md) |
+| 直接体验最终白盒 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.1/LastLightStation-Windows.zip](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.1/LastLightStation-Windows.zip) |
 | 快速阅读设计文档 | [v6结构设计 PDF](docs/pdf/level-design-v6.pdf) · [后续设计更新 PDF](docs/pdf/design-update.pdf) |
 
-视频为中文合成女声及同步字幕；重点拆解中的局部慢放有标记。视频文件和试玩包集中放在 [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/tag/portfolio-v1.0](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/tag/portfolio-v1.0)，可下载查看。
+视频为中文合成女声及同步字幕；重点拆解中的局部慢放有标记。视频文件和试玩包集中放在 [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/tag/portfolio-v1.1](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/tag/portfolio-v1.1)，可下载查看。
+
+当前文案修订版包含重新采集的完整流程、重制配音与同步字幕，详见[文案、配音字幕与游戏文本修订](docs/07-copy-revision.md)。旧版保留在历史发布中。
 
 ## 跨层入口、支线顺序与战斗配置
 

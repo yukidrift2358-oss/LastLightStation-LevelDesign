@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace LastLight
@@ -39,14 +39,14 @@ namespace LastLight
         {
             Sealed=true;
             if(pressure!=null) pressure.Powered=false;
-            director.Notify("泄漏侧已隔离。舱压稳定，隔离区现在可以安全通过。");
+            director.Notify("泄漏侧已隔离，舱压恢复稳定。");
         }
-        public void Suppressed() { if(StationPlan.Sync(sector)&&(!PowerB||!Sealed)){director.Notify("同步失败：先密封，再接入 B 电，最后抑制。");return;} PulseSolved=true; }
+        public void Suppressed() { if(StationPlan.Sync(sector)&&(!PowerB||!Sealed)){director.Notify("抑制条件未满足：先关闭泄漏，再切到 B 支路，最后使用 Q。");return;} PulseSolved=true; }
         public void ReadRecord()
         {
             if((Need&RoomNeed.Power)!=0&&PowerB) { director.Notify("档案终端无电。请先切回 A 支路。"); return; }
             if((Need&RoomNeed.Seal)!=0&&!Sealed) { director.Notify("读取接口位于低压区。请先关闭泄漏侧隔离阀。"); return; }
-            if((Need&RoomNeed.Pulse)!=0&&!PulseSolved) { director.Notify("扫描装置干扰接口。靠近红色装置，按 Q 短时抑制。"); return; }
+            if((Need&RoomNeed.Pulse)!=0&&!PulseSolved) { director.Notify("扫描装置干扰接口。靠近环形扫描装置，按 Q 抑制后读取。"); return; }
             HasRecord=true;
             director.ShowRecord(StationPlan.Records[sector],StationPlan.Stories[sector]);
         }
@@ -54,10 +54,10 @@ namespace LastLight
         {
             var list=new List<string>();
             if((Need&RoomNeed.Relay)!=0&&RelayProgress<3)list.Add("继电器 "+RelayHint+"（已完成 "+RelayProgress+"）");
-            if((StationPlan.Timed(sector)||StationPlan.Sync(sector))&&(!PulseSolved||scanner==null||!scanner.SuppressedNow))list.Add("出口需在当前抑制窗口内登记（短按4秒 / 蓄满7秒）");
+            if((StationPlan.Timed(sector)||StationPlan.Sync(sector))&&(!PulseSolved||scanner==null||!scanner.SuppressedNow))list.Add("抑制结束前操作出口（短按4秒 / 蓄力7秒）");
             if((Need&RoomNeed.Seal)!=0&&!Sealed) list.Add("关闭泄漏侧隔离阀");
             if((Need&RoomNeed.Pulse)!=0&&!PulseSolved) list.Add("靠近扫描装置使用 Q 抑制");
-            if((Need&RoomNeed.Record)!=0&&!HasRecord) list.Add("在 A 支路读取任务记录");
+            if((Need&RoomNeed.Record)!=0&&!HasRecord) list.Add("读取档案（有电柜时先切回 A）");
             if((Need&RoomNeed.Combat)!=0&&!Cleared) list.Add("解除活动机械威胁");
             if((Need&RoomNeed.Power)!=0&&!PowerB) list.Add("切换 B 支路为出口供电");
             return string.Join(" · ",list);

@@ -80,7 +80,7 @@ namespace LastLight
         void Start()
         {
             Step=0;TutorialStage=0;
-            Notify("调查任务：居民曾主动将守望站放逐深空，以隔离感染。恢复维护通路、收集事件档案，并把姓名传回家园。沿流动灯带学习操作；J 可回看已读档案。");
+            Notify("调查任务：恢复维护通路，收集隔离事件档案，将居民姓名传回家园。沿灯带前往操作点；J 回看已读档案。");
         }
         public void Notify(string message) {Notification=message;NoticeUntil=Time.unscaledTime+6;}
         public bool IsCurrentRoom(StationRoom room) {return TutorialStage>=4&&room!=null&&room==CurrentRoom&&RoomEntered&&!room.Complete;}
@@ -91,7 +91,7 @@ namespace LastLight
             tutorialGates[stage].SetOpen(true);TutorialStage++;
             if(stage==1&&teachingLeak!=null)teachingLeak.Powered=false;
             player.SetCheckpoint(new Vector3(0,.15f,108-stage*14));
-            string[] messages={"电力分流：已切换到通路支路。前方气密门开启。","气密隔离：泄漏已关闭。前往红色扫描装置附近，按 Q 抑制。","抑制有效：短按暂停 4 秒；长按 Q 蓄满后松开，范围更大、暂停 7 秒。下一段靠近机械体，左键攻击，Shift 闪避。","教学完成。进入圆环 01 区，沿任务提示恢复维护权限。"};
+            string[] messages={"电力分流：已切换到通路支路。前方气密门开启。","气密隔离：泄漏已关闭。靠近环形扫描装置，短按 Q 暂停扫描。","抑制成功。短按 Q：9米、4秒；蓄满1.2秒后松开：16米、7秒。前往下一段，左键攻击，Shift 闪避。","教学完成。进入圆环 01 区，沿任务提示恢复维护权限。"};
             Notify(messages[stage]);
         }
         public void EnterRoom(StationRoom room)
@@ -113,7 +113,7 @@ namespace LastLight
             if(!room.Complete){string missing=room.Missing();if(missing.Length>0){Notify("出口未就绪："+missing+"。可以退回已完成的区域。");OpenChoices(true);return;}
                 room.MarkComplete();CompletedMask|=1u<<room.sector;Step++;
             }
-            if(CompletedMask==StationTopology.All&&room.sector==20){if(bossGate.IsOpen)OpenChoices(false);else {bossGate.SetOpen(true);Notify("全部26区已留档。外侧航行控制舱开启；再次使用出口可以返回已完成区域。");}return;}
+            if(CompletedMask==StationTopology.All&&room.sector==20){if(bossGate.IsOpen)OpenChoices(false);else {bossGate.SetOpen(true);Notify("全部26区任务已完成，航行控制舱已开放。再次操作本区出口可回访已完成区域。");}return;}
             var choices=AvailableDestinations();int single=-1,count=0;foreach(int id in choices)if(!rooms[id].Complete){single=id;count++;}
             if(count==1)ChooseDestination(single);else OpenChoices(false);
         }

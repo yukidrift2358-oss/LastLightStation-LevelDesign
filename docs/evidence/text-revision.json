@@ -1,0 +1,71 @@
+{
+  "textStandard": "中文展示文案规范",
+  "scope": "画面标题、讲解配音、字幕与游戏内显示文本",
+  "segments": 27,
+  "speechClips": 98,
+  "frontSeconds": 476.24999999999983,
+  "bodySeconds": 837.0416666666666,
+  "sourceFiles": {
+    "StationArchive.cs": "232f6986c94af4c9fdd151aaa4ac15c4e2d1b3f588742c2fc95a616ad46d3568",
+    "StationPlan.cs": "8cdb6f0839640bf590f382ddb2ca984cd734df79bc9c6f74b1d4a3264134dc4f",
+    "StationHud.cs": "ddfd57b0e80a4a0923c52c95c2fc43f61ebb393e8403094a2e012c60cda7473d",
+    "StationDirector.cs": "2e8fe7a3ebe7d6b30c132017b639051cc25a8e77d4a76175432c36f0b57987ca",
+    "StationRoom.cs": "f41587b8fa3477c42050b4fbe8ff509d0743a5dfc9b5d61a6d44b341d558640f"
+  },
+  "runs": {
+    "实录": {
+      "result": "SUCCESS\nFrames: 20000\nFPS: 24\nRooms entered: 26\nCompleted: 26\nMask: 67108863\nWon: True",
+      "archiveChecks": 15,
+      "interactions": 71,
+      "failures": 0
+    },
+    "路线B检查": {
+      "result": "SUCCESS\nFrames: 20681\nFPS: 24\nRooms entered: 26\nCompleted: 26\nMask: 67108863\nWon: True",
+      "archiveChecks": 15,
+      "interactions": 71,
+      "failures": 0
+    }
+  },
+  "files": {
+    "长夜泊站_项目迭代回顾_配音.mp4": {
+      "frames": 3900,
+      "seconds": 162.5,
+      "bytes": 3926234,
+      "sha256": "fc6e700c0ec49b3617bc54d31fa7f71cbcca527f4ab9dc6ee8ba109a0890b835"
+    },
+    "长夜泊站_立项迭代与设计展示_配音版.mp4": {
+      "frames": 11430,
+      "seconds": 476.25,
+      "bytes": 28404836,
+      "sha256": "c62de38aef704faf41620b0a9a8abc10b5a57e62ec91ba0950fc4a902aeacf7d"
+    },
+    "长夜泊站_立项迭代与完整流程_配音版.mp4": {
+      "frames": 31519,
+      "seconds": 1313.29,
+      "bytes": 157995403,
+      "sha256": "1060e203733fff26b4b32c6b49984901e35ba8e59a7f4e0553ef45d74da2680b"
+    },
+    "长夜泊站_文案规范修订_Windows.zip": {
+      "bytes": 33241770,
+      "sha256": "cd229e1e6c0eb5917001df1dca44d745baf9a56cb3e91cae2660c5b10f2f1237"
+    }
+  },
+  "previousVideos": {
+    "长夜泊站_立项迭代与完整流程_配音版.mp4": "14209750cff602d8f4dd9f9b983fac28e50aa2a0c2dde13e5c80ed6b951b5830",
+    "长夜泊站_立项迭代与设计展示_配音版.mp4": "f38c6bc0bb8fba74776444ded7bb31305b8bfed115f58799e2311b493fa85e71",
+    "长夜泊站_项目迭代回顾_配音.mp4": "21c3e95a1b85dafb6cbc077fc65562863d3c4ae2aad61885a7a3c1cc6147125a"
+  },
+  "cleanPlayerHasRecordingOperator": false,
+  "audio": {
+    "input_i": "-17.99",
+    "input_tp": "-1.75",
+    "input_lra": "4.80",
+    "input_thresh": "-28.20",
+    "output_i": "-17.97",
+    "output_tp": "-2.00",
+    "output_lra": "4.70",
+    "output_thresh": "-28.18",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.03"
+  }
+}

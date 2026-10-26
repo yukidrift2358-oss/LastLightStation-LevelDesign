@@ -42,19 +42,19 @@ namespace LastLight
             GUI.Label(new Rect(304,116,140,26),"生命 "+director.player.Health,small);
             GUI.Label(new Rect(42,143,390,24),"抑制 "+(director.player.PulseReady<=0?"就绪":director.player.PulseReady.ToString("0.0")+"s")+"   /   闪避 "+(director.player.DashReady<=0?"就绪":director.player.DashReady.ToString("0.0")+"s")+"   /   记录 "+director.RecordCount,small);
             Panel(new Rect(24,h-84,w-48,60),new Color(.025f,.045f,.065f,.9f));
-            GUI.Label(new Rect(42,h-70,w-84,35),"WASD 移动   鼠标 视角   E 交互   Q 短按 / 长按蓄能   左键 攻击   Shift 闪避   Space 跳跃   Tab 地图   J 档案   Esc 暂停",label);
+            GUI.Label(new Rect(42,h-70,w-84,35),"WASD 移动   鼠标 视角   E 交互   Q 抑制：短按 / 蓄力   左键 攻击   Shift 闪避   Space 跳跃   Tab 地图   J 档案   Esc 暂停",label);
             if(!director.MapVisible&&!director.RecordOpen&&!director.Paused&&!director.Won&&!director.RouteChoiceOpen)
             {
                 var room=director.CurrentRoom;
                 if(director.TutorialStage>=4&&room!=null)
                 {
                     Panel(new Rect(w-454,24,430,152),new Color(.025f,.045f,.065f,.94f));
-                    GUI.Label(new Rect(w-436,34,394,28),StationPlan.Rest(room.sector)?"安全休息 · 生命与技能已恢复":"本区操作提示",label);
+                    GUI.Label(new Rect(w-436,34,394,28),StationPlan.Rest(room.sector)?"安全休息 · 生命与技能已恢复":"当前任务",label);
                     string task=StationPlan.Novelty(room.sector);
                     if((room.Need&RoomNeed.Relay)!=0)task+="\n标牌顺序："+room.RelayHint;
                     task+="\n"+room.Missing();
-                    if(room.Complete)task="维护已完成，可回看记录。出口可选择已解锁通路。";
-                    if(director.Travel!=null)task="前往 "+StationTopology.Label(director.TravelTo)+"\n"+(director.Bridging?"桥面正在对接，请站稳等待。":"沿流动灯带前进；跨层通道中没有额外遭遇。");
+                    if(room.Complete)task="本区任务已完成。可回看档案，或在出口选择已解锁目的地。";
+                    if(director.Travel!=null)task="前往 "+StationTopology.Label(director.TravelTo)+"\n"+(director.Bridging?"桥面正在对接，请站稳等待。":"沿流动灯带前进；留意目标的楼层与上下行方向。");
                     if(!room.Complete&&director.Travel==null&&room.scanner!=null&&(StationPlan.Timed(room.sector)||StationPlan.Sync(room.sector)))task+="\n出口窗口："+room.scanner.SuppressedRemaining.ToString("0.0")+"s";
                     GUI.Label(new Rect(w-436,68,394,100),task,small);
                 }
@@ -65,7 +65,7 @@ namespace LastLight
                 DrawObjective(w,h);
                 Panel(new Rect(w/2-210,h-222,420,56),new Color(.025f,.045f,.065f,.92f));
                 var p=director.player;
-                string skill=p.Charging?(p.ChargedReady?"重抑制就绪 · 松开 Q 释放 16m / 7秒":"长按蓄能 "+(p.ChargeRatio*100).ToString("0")+"% · 松开为快速抑制"):"短按 Q：9m / 4秒   长按 1.2秒松开：16m / 7秒";
+                string skill=p.Charging?(p.ChargedReady?"蓄力完成 · 松开 Q：16米 / 7秒":"蓄力中 "+(p.ChargeRatio*100).ToString("0")+"% · 提前松开：9米 / 4秒"):"短按 Q：9米 / 4秒   蓄满1.2秒：16米 / 7秒";
                 GUI.Label(new Rect(w/2-198,h-216,396,30),skill,small);
                 Panel(new Rect(w/2-198,h-184,396,5),new Color(.12f,.22f,.25f));
                 Panel(new Rect(w/2-198,h-184,396*p.ChargeRatio,5),p.ChargedReady?new Color(1,.65f,.15f):Color.cyan);
@@ -80,7 +80,7 @@ namespace LastLight
                 int n=director.DestinationChoices.Length;float top=h/2-100-n*24;
                 Panel(new Rect(w/2-370,top,740,180+n*58),new Color(.025f,.05f,.07f,.99f));
                 GUI.Label(new Rect(w/2-340,top+20,680,42),"维护通路 / 选择目的地",title);
-                GUI.Label(new Rect(w/2-340,top+66,680,49),director.ActiveSector==7?"X：跨层档案 → 抑制接力 → 配电休息。Y：维修支援交火 → 温室维护 → 影院休息。两条均需完成，自选先后，返回时进度保留。":"选择已解锁通路。回访保留完成状态；未完成目标仍需在本区解决。",small);
+                GUI.Label(new Rect(w/2-340,top+66,680,49),director.ActiveSector==7?"X：监视廊 → 跨层档案 → 转子接力 → 配电总线。Y：空箱货场 → 装卸交火 → 旧日影院。两条都要完成，先后自选；回访保留进度。":"选择已解锁通路。回访保留完成状态；未完成目标仍需在本区解决。",small);
                 for(int i=0;i<n;i++){int id=director.DestinationChoices[i];string branch=director.ActiveSector==7?(id==8?"系统X · ":id==11?"货场Y · ":""):"";if(GUI.Button(new Rect(w/2-330,top+115+i*58,660,48),(director.rooms[id].Complete?"[回访] ":"[未完成] ")+branch+StationTopology.Label(id),button))director.ChooseDestination(id);}
                 if(GUI.Button(new Rect(w/2-90,top+120+n*58,180,38),"留在本区 [Esc]",button))director.CloseChoices();
             }
@@ -89,7 +89,7 @@ namespace LastLight
             if(director.Paused&&!director.RecordOpen&&!director.MapVisible&&!director.Won&&!director.RouteChoiceOpen)
             {
                 Panel(new Rect(w/2-200,h/2-150,400,300),new Color(.035f,.065f,.085f,.99f));
-                GUI.Label(new Rect(w/2-160,h/2-120,320,45),"暂停 / 值班间隙",title);
+                GUI.Label(new Rect(w/2-160,h/2-120,320,45),"暂停",title);
                 if(GUI.Button(new Rect(w/2-150,h/2-35,300,44),"继续",button))director.TogglePause();
                 if(GUI.Button(new Rect(w/2-150,h/2+25,300,44),"从教学重新开始",button))director.Restart();
             }
@@ -97,7 +97,7 @@ namespace LastLight
             {
                 Panel(new Rect(w/2-360,h/2-210,720,420),new Color(.035f,.065f,.085f,.99f));
                 GUI.Label(new Rect(w/2-320,h/2-175,640,55),"最后一次交接完成",title);
-                GUI.Label(new Rect(w/2-320,h/2-95,640,160),"隔离事件档案与居民姓名已传回家园。\n发送不携带人员或机械载体；守望站继续留在深空，隔离边界仍然有效。\n\n他们曾亲手切断归途。现在，终于有人完成了交接。",label);
+                GUI.Label(new Rect(w/2-320,h/2-95,640,160),"隔离事件档案与居民姓名已传回家园。\n本次仅发送数据，未运输人员或机械载体。守望站继续留在深空，隔离仍然有效。\n\n最后一位值班员留下的交接单，终于有了回执。",label);
                 if(GUI.Button(new Rect(w/2-130,h/2+120,260,48),"重新进入守望站",button))director.Restart();
             }
             GUI.matrix=Matrix4x4.identity;
@@ -126,10 +126,10 @@ namespace LastLight
             recordScroll=GUI.BeginScrollView(new Rect(x+320,y+233,808,342),recordScroll,new Rect(0,0,770,bodyHeight));
             GUI.Label(new Rect(0,0,768,bodyHeight),body,archiveBody);GUI.EndScrollView();
             Panel(new Rect(x+32,y+594,1096,1),new Color(.72f,.76f,.70f));
-            GUI.Label(new Rect(x+32,y+613,360,43),"本地已留档 "+director.RecordCount+" 件\n← / → 回看已读文件 · J 关闭",archiveMeta);
+            GUI.Label(new Rect(x+32,y+613,360,43),"已保存档案 "+director.RecordCount+" 件\n← / → 回看已读文件 · J 关闭",archiveMeta);
             if(ArchiveAction(new Rect(x+440,y+614,150,43),"← 上一份"))director.BrowseRecord(-1);
             if(ArchiveAction(new Rect(x+606,y+614,150,43),"下一份 →"))director.BrowseRecord(1);
-            if(ArchiveAction(new Rect(x+788,y+614,340,43),"留档并继续  [Esc]"))director.CloseRecord();
+            if(ArchiveAction(new Rect(x+788,y+614,340,43),"关闭档案  [Esc]"))director.CloseRecord();
         }
         bool ArchiveAction(Rect r,string text)
         {
