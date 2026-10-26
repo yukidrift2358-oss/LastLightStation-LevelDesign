@@ -12,27 +12,27 @@
 
 | 想了解什么 | 入口 |
 |---|---|
-| 从立项到成品，哪些问题推动了修改 | [迭代回顾视频 · 2分34秒](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-Iteration-CN.mp4) · [版本更新记录](docs/03-iteration-history.md) |
-| 整体动线、房间拆解和设计取舍 | [迭代与设计展示 · 7分09秒](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-DesignShowcase-CN.mp4) · [设计说明](docs/02-level-design.md) |
-| 教学、26区与Boss的完整操作 | [完整配音视频 · 21分05秒](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-FullWalkthrough-CN.mp4) · [章节](docs/video-chapters.md) |
-| 直接体验最终白盒 | [下载 Windows 试玩包](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-Windows.zip) |
+| 从立项到成品，哪些问题推动了修改 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-Iteration-CN.mp4](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-Iteration-CN.mp4) · [版本更新记录](docs/03-iteration-history.md) |
+| 整体动线、房间拆解和设计取舍 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-DesignShowcase-CN.mp4](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-DesignShowcase-CN.mp4) · [设计说明](docs/02-level-design.md) |
+| 教学、26区与Boss的完整操作 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-FullWalkthrough-CN.mp4](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-FullWalkthrough-CN.mp4) · [章节](docs/video-chapters.md) |
+| 直接体验最终白盒 | [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-Windows.zip](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/download/portfolio-v1.0/LastLightStation-Windows.zip) |
 | 快速阅读设计文档 | [v6结构设计 PDF](docs/pdf/level-design-v6.pdf) · [后续设计更新 PDF](docs/pdf/design-update.pdf) |
 
-视频为中文合成女声及同步字幕；重点拆解中的局部慢放有标记。视频文件和试玩包集中放在 [Release](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/tag/portfolio-v1.0)，可下载查看。
+视频为中文合成女声及同步字幕；重点拆解中的局部慢放有标记。视频文件和试玩包集中放在 [https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/tag/portfolio-v1.0](https://github.com/yukidrift2358-oss/LastLightStation-LevelDesign/releases/tag/portfolio-v1.0)，可下载查看。
 
-## 三个主要设计判断
+## 跨层入口、支线顺序与战斗配置
 
-### 让楼层决定入口
+### 跨层入口与返回路线
 
 生活环的气密档案室不能从本层直接进入，需要从工业环下行取档，再从另一段通道返回上层。后段的回声天线复用这一关系，把先前学过的认路方式与接力、短时抑制接在一起。
 
-### 让玩家安排任务先后
+### 两条必经支线的先后选择
 
 工业环的安全房提供两条支线：系统线偏跨层档案与接力，货场线偏交火与维修支援。两条都要完成，可以交换先后；原有桥梁在轴心转向，已完成区域保留状态，回访不必重复清场。
 
-### 用位置和依赖改变同一套操作
+### 高低位目标与机制组合
 
-近战威胁在地面，维修机位于约三米高的服务步道。坡道、掩体和修复关系影响先处理谁、从哪里接近。机制则从单项操作发展到先密封、再接电、最后抑制的综合条件。九处安全房穿插其中，承担恢复、读档与重新认路。
+近战威胁在地面，维修机位于约三米高的服务步道。坡道、掩体和修复关系影响先处理谁、从哪里接近。机制则从单项操作发展到先密封、再接电、最后抑制的综合条件。九处安全房穿插其中，提供状态恢复、档案阅读和路线确认的时间。
 
 ![两条完整路线与关键跨层回路](docs/images/routes-a-b.png)
 
@@ -47,7 +47,7 @@
 
 ## 实现与验证
 
-已验证环境为 Unity **2022.3.62f3c1**、Windows x64。两条代表路线均完成26区及Boss；最新一次完整录像包含71次原生交互，15次已读档案翻阅检查通过。详见[验证范围与证据](docs/06-validation.md)。这些结果用于说明功能和路线成立，不作为陌生玩家体验统计。
+已验证环境为 Unity **2022.3.62f3c1**、Windows x64。两条代表路线均完成26区及Boss；完整录像对应的运行检查包含71次原生交互，15次已读档案翻阅检查通过。详见[验证范围与证据](docs/06-validation.md)。这些结果用于说明功能和路线成立，不作为陌生玩家体验统计。
 
 ## 资源来源与许可
 
