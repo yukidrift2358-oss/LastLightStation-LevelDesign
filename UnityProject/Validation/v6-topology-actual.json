@@ -1,0 +1,258 @@
+{
+    "routeA": [
+        0,
+        1,
+        5,
+        2,
+        3,
+        6,
+        7,
+        8,
+        4,
+        9,
+        10,
+        11,
+        17,
+        12,
+        13,
+        14,
+        15,
+        18,
+        16,
+        19,
+        23,
+        22,
+        21,
+        25,
+        24,
+        20
+    ],
+    "routeB": [
+        0,
+        1,
+        5,
+        2,
+        3,
+        6,
+        7,
+        11,
+        17,
+        12,
+        8,
+        4,
+        9,
+        10,
+        13,
+        14,
+        15,
+        18,
+        16,
+        19,
+        23,
+        22,
+        21,
+        25,
+        24,
+        20
+    ],
+    "links": [
+        {
+            "a": 0,
+            "b": 1,
+            "kind": 0,
+            "required": 1,
+            "angle": 0.0
+        },
+        {
+            "a": 1,
+            "b": 5,
+            "kind": 1,
+            "required": 2,
+            "angle": 0.0
+        },
+        {
+            "a": 5,
+            "b": 2,
+            "kind": 1,
+            "required": 32,
+            "angle": 0.0
+        },
+        {
+            "a": 2,
+            "b": 3,
+            "kind": 0,
+            "required": 4,
+            "angle": 0.0
+        },
+        {
+            "a": 3,
+            "b": 6,
+            "kind": 3,
+            "required": 8,
+            "angle": 0.0
+        },
+        {
+            "a": 6,
+            "b": 7,
+            "kind": 0,
+            "required": 64,
+            "angle": 0.0
+        },
+        {
+            "a": 7,
+            "b": 8,
+            "kind": 0,
+            "required": 128,
+            "angle": 0.0
+        },
+        {
+            "a": 7,
+            "b": 11,
+            "kind": 1,
+            "required": 128,
+            "angle": 0.0
+        },
+        {
+            "a": 8,
+            "b": 4,
+            "kind": 2,
+            "required": 256,
+            "angle": 240.0
+        },
+        {
+            "a": 4,
+            "b": 9,
+            "kind": 2,
+            "required": 16,
+            "angle": 262.5
+        },
+        {
+            "a": 9,
+            "b": 10,
+            "kind": 0,
+            "required": 512,
+            "angle": 0.0
+        },
+        {
+            "a": 11,
+            "b": 17,
+            "kind": 1,
+            "required": 2048,
+            "angle": 0.0
+        },
+        {
+            "a": 17,
+            "b": 12,
+            "kind": 1,
+            "required": 131072,
+            "angle": 0.0
+        },
+        {
+            "a": 10,
+            "b": 11,
+            "kind": 0,
+            "required": 1024,
+            "angle": 0.0
+        },
+        {
+            "a": 12,
+            "b": 8,
+            "kind": 1,
+            "required": 4096,
+            "angle": 0.0
+        },
+        {
+            "a": 10,
+            "b": 13,
+            "kind": 1,
+            "required": 139024,
+            "angle": 0.0
+        },
+        {
+            "a": 12,
+            "b": 13,
+            "kind": 0,
+            "required": 139024,
+            "angle": 0.0
+        },
+        {
+            "a": 13,
+            "b": 14,
+            "kind": 0,
+            "required": 8192,
+            "angle": 0.0
+        },
+        {
+            "a": 14,
+            "b": 15,
+            "kind": 0,
+            "required": 16384,
+            "angle": 0.0
+        },
+        {
+            "a": 15,
+            "b": 18,
+            "kind": 3,
+            "required": 32768,
+            "angle": 0.0
+        },
+        {
+            "a": 18,
+            "b": 16,
+            "kind": 2,
+            "required": 262144,
+            "angle": 108.75
+        },
+        {
+            "a": 16,
+            "b": 19,
+            "kind": 2,
+            "required": 65536,
+            "angle": 123.75
+        },
+        {
+            "a": 19,
+            "b": 23,
+            "kind": 1,
+            "required": 524288,
+            "angle": 0.0
+        },
+        {
+            "a": 23,
+            "b": 22,
+            "kind": 0,
+            "required": 8388608,
+            "angle": 0.0
+        },
+        {
+            "a": 22,
+            "b": 21,
+            "kind": 0,
+            "required": 4194304,
+            "angle": 0.0
+        },
+        {
+            "a": 21,
+            "b": 25,
+            "kind": 1,
+            "required": 2097152,
+            "angle": 0.0
+        },
+        {
+            "a": 25,
+            "b": 24,
+            "kind": 0,
+            "required": 33554432,
+            "angle": 0.0
+        },
+        {
+            "a": 24,
+            "b": 20,
+            "kind": 1,
+            "required": 16777216,
+            "angle": 0.0
+        }
+    ],
+    "passageCount": 28,
+    "countComparison": "identical_to_v5_baseline"
+}

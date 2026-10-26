@@ -1,0 +1,30 @@
+{
+    "rows": [
+        {
+            "position": {
+                "x": 34.528724670410159,
+                "y": 24.079999923706056,
+                "z": 19.3286190032959
+            },
+            "allCount": 68,
+            "limitedCount": 64,
+            "fixedCount": 68,
+            "allHasScanner": true,
+            "limitedHasScanner": true,
+            "fixedHasScanner": true
+        },
+        {
+            "position": {
+                "x": 31.417509078979493,
+                "y": 24.079999923706056,
+                "z": 20.94148826599121
+            },
+            "allCount": 74,
+            "limitedCount": 64,
+            "fixedCount": 74,
+            "allHasScanner": true,
+            "limitedHasScanner": false,
+            "fixedHasScanner": true
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+SUCCESS
+Frames: 19999
+FPS: 24
+Rooms entered: 26
+Completed: 26
+Mask: 67108863
+Won: True
